@@ -4,4 +4,4 @@
 
 A super cool OS like thingy on web powered by Svelte
 
-> Not in active development
+> In development
