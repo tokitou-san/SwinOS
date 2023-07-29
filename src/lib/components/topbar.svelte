@@ -14,9 +14,9 @@
 
     onMount(() => {
         let date_time_interval: number;
-        date_time_interval = setInterval(get_time_date(), 1000)
-        return() => clearInterval(date_time_interval);
-    })
+        date_time_interval = setInterval(get_time_date(), 1000);
+        return () => clearInterval(date_time_interval);
+    });
 </script>
 
 <topbar class="relative block flex h-8 w-full items-center justify-between bg-white/10 px-2 leading-none text-white backdrop-blur-xl">
