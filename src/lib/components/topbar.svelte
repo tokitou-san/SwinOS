@@ -45,7 +45,7 @@
         </settings>
         <battery class="flex cursor-pointer items-center gap-1 opacity-75 transition-opacity hover:opacity-100">
             <Battery_80 class="w-4" />
-            <span class="text-xs font-semibold select-none">80%</span>
+            <span class="select-none text-xs font-semibold">80%</span>
         </battery>
         <power class="cursor-pointer opacity-75 transition-opacity hover:opacity-100">
             <Power class="w-4" />
