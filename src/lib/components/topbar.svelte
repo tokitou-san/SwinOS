@@ -1,5 +1,6 @@
 <script lang="ts">
     import Github from "$lib/icons/github.svelte";
+    import { onMount } from "svelte";
 
     function get_time_date(): string {
         let current_time = new Date();
@@ -10,6 +11,12 @@
 
         return `${current_month} ${current_day} - ${current_hour_minute}`;
     }
+
+    onMount(() => {
+        let date_time_interval: number;
+        date_time_interval = setInterval(get_time_date(), 1000)
+        return() => clearInterval(date_time_interval);
+    })
 </script>
 
 <topbar class="relative block flex h-8 w-full items-center justify-between bg-white/10 px-2 leading-none text-white backdrop-blur-xl">
