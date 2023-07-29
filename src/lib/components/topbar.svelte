@@ -1,5 +1,9 @@
 <script lang="ts">
-    import Github from "$lib/icons/github.svelte";
+    import Battery_80 from "$lib/icons/battery/battery-80.svelte";
+import Github from "$lib/icons/github.svelte";
+    import Power from "$lib/icons/power.svelte";
+    import Settings from "$lib/icons/settings.svelte";
+    import Volume from "$lib/icons/volume.svelte";
     import { onMount } from "svelte";
 
     function get_time_date(): string {
@@ -26,11 +30,25 @@
             target="_blank"
             class="opacity-75 transition-opacity hover:opacity-100"
         >
-            <Github class="w-6" />
+            <Github class="w-5" />
         </a>
     </github-icon>
     <time class="absolute inset-x-0 mx-auto w-max">
         <span class="text-xs font-semibold">{get_time_date()}</span>
     </time>
-    <controls>Controls</controls>
+    <controls class="flex items-center gap-2">
+        <volume class="opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
+            <Volume class="w-4" />
+        </volume>
+        <settings class="opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
+            <Settings class="w-4" />
+        </settings>
+        <battery class="opacity-75 hover:opacity-100 transition-opacity cursor-pointer flex items-center gap-1">
+            <Battery_80 class="w-4" />
+            <span class="text-xs font-semibold">80%</span>
+        </battery>
+        <power class="opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
+            <Power class="w-4" />
+        </power>
+    </controls>
 </topbar>
