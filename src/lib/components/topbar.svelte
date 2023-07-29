@@ -1,6 +1,6 @@
 <script lang="ts">
     import Battery_80 from "$lib/icons/battery/battery-80.svelte";
-import Github from "$lib/icons/github.svelte";
+    import Github from "$lib/icons/github.svelte";
     import Power from "$lib/icons/power.svelte";
     import Settings from "$lib/icons/settings.svelte";
     import Volume from "$lib/icons/volume.svelte";
@@ -37,17 +37,17 @@ import Github from "$lib/icons/github.svelte";
         <span class="text-xs font-semibold">{get_time_date()}</span>
     </time>
     <controls class="flex items-center gap-2">
-        <volume class="opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
+        <volume class="cursor-pointer opacity-75 transition-opacity hover:opacity-100">
             <Volume class="w-4" />
         </volume>
-        <settings class="opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
+        <settings class="cursor-pointer opacity-75 transition-opacity hover:opacity-100">
             <Settings class="w-4" />
         </settings>
-        <battery class="opacity-75 hover:opacity-100 transition-opacity cursor-pointer flex items-center gap-1">
+        <battery class="flex cursor-pointer items-center gap-1 opacity-75 transition-opacity hover:opacity-100">
             <Battery_80 class="w-4" />
             <span class="text-xs font-semibold">80%</span>
         </battery>
-        <power class="opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
+        <power class="cursor-pointer opacity-75 transition-opacity hover:opacity-100">
             <Power class="w-4" />
         </power>
     </controls>
