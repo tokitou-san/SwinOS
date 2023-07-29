@@ -33,7 +33,7 @@
             <Github class="w-5" />
         </a>
     </github-icon>
-    <time class="absolute inset-x-0 mx-auto w-max">
+    <time class="absolute inset-x-0 mx-auto w-max select-none">
         <span class="text-xs font-semibold">{get_time_date()}</span>
     </time>
     <controls class="flex items-center gap-2">
@@ -45,7 +45,7 @@
         </settings>
         <battery class="flex cursor-pointer items-center gap-1 opacity-75 transition-opacity hover:opacity-100">
             <Battery_80 class="w-4" />
-            <span class="text-xs font-semibold">80%</span>
+            <span class="text-xs font-semibold select-none">80%</span>
         </battery>
         <power class="cursor-pointer opacity-75 transition-opacity hover:opacity-100">
             <Power class="w-4" />
