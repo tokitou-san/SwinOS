@@ -12,7 +12,7 @@
     }
 </script>
 
-<topbar class="block flex h-10 w-full items-center justify-between bg-white/10 px-2 leading-none text-white backdrop-blur-xl">
+<topbar class="block relative flex h-10 w-full items-center justify-between bg-white/10 px-2 leading-none text-white backdrop-blur-xl">
     <github-icon>
         <a
             href="https://github.com/tokitou-san/SwinOS"
@@ -22,6 +22,8 @@
             <Github class="w-6" />
         </a>
     </github-icon>
-    <time>{get_time_date()}</time>
+    <time class="absolute mx-auto w-max inset-x-0">
+        <span class="font-semibold text-base text-white/90">{get_time_date()}</span>
+    </time>
     <controls>Controls</controls>
 </topbar>
