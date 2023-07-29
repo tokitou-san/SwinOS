@@ -1,6 +1,5 @@
 <script lang="ts">
     import Topbar from "$lib/components/topbar.svelte";
-
 </script>
 
 <svelte:head>
