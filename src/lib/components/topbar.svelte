@@ -53,7 +53,7 @@
             <Github class="w-5" />
         </a>
     </github-icon>
-    <time class="absolute inset-x-0 mx-auto flex h-3/4 w-max cursor-pointer select-none items-center rounded-md px-2 transition-colors hover:bg-white/10">
+    <time class="absolute inset-x-0 mx-auto w-max select-none">
         <span class="text-xs font-semibold">{current_time_date}</span>
     </time>
     <controls
@@ -83,7 +83,7 @@
             <controls-popdown
                 in:fly={{ y: -5, duration: 250 }}
                 out:fly={{ y: -5, duration: 250 }}
-                class="absolute right-0 flex h-max w-72 translate-y-3 transform flex-col gap-4 rounded-md bg-white/10 p-3 backdrop-blur-xl"
+                class="absolute right-0 flex h-max w-72 translate-y-3 transform flex-col gap-4 rounded-lg bg-white/10 p-3 drop-shadow-2xl backdrop-blur-xl"
             >
                 <system-control-buttons class="flex items-center justify-between">
                     <battery class="flex items-center gap-1">
