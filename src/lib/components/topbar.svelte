@@ -43,19 +43,25 @@
     <time class="absolute inset-x-0 mx-auto flex h-3/4 w-max cursor-pointer select-none items-center rounded-md px-2 transition-colors hover:bg-white/10">
         <span class="text-xs font-semibold">{current_time_date}</span>
     </time>
-    <controls class="mr-1 flex h-3/4 cursor-pointer items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10">
-        <volume>
-            <Volume class="w-4" />
-        </volume>
-        <settings>
-            <Settings class="w-4" />
-        </settings>
-        <battery class="flex items-center gap-1">
-            <Battery_80 class="w-4" />
-            <span class="select-none text-xs font-semibold">80%</span>
-        </battery>
-        <power>
-            <Power class="w-4" />
-        </power>
+    <controls class="relative mr-1 h-3/4 cursor-pointer rounded-md px-2 transition-colors hover:bg-white/10">
+        <controls-trigger class="flex h-full items-center gap-2">
+            <volume>
+                <Volume class="w-4" />
+            </volume>
+            <settings>
+                <Settings class="w-4" />
+            </settings>
+            <battery class="flex items-center gap-1">
+                <Battery_80 class="w-4" />
+                <span class="select-none text-xs font-semibold">80%</span>
+            </battery>
+            <power>
+                <Power class="w-4" />
+            </power>
+        </controls-trigger>
+
+        <controls-popdown class="absolute transform translate-y-3 -translate-x-2 h-10 w-full bg-white/10 rounded-md">
+            
+        </controls-popdown>
     </controls>
 </topbar>
