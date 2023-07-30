@@ -45,14 +45,9 @@
     in:fly={{ y: -50 }}
     class="fixed top-0 block flex h-8 w-full items-center justify-between bg-white/10 leading-none text-white backdrop-blur-xl"
 >
-    <github-icon class="ml-1 flex h-3/4 cursor-pointer items-center rounded-full p-1 transition-colors hover:bg-white/10">
-        <a
-            href="https://github.com/tokitou-san/SwinOS"
-            target="_blank"
-        >
-            <Github class="w-5" />
-        </a>
-    </github-icon>
+    <applications class="ml-2 flex h-3/4 cursor-pointer items-center rounded-md px-2 transition-colors hover:bg-white/10">
+        <span class="text-xs font-semibold">Applications</span>
+    </applications>
     <time class="absolute inset-x-0 mx-auto w-max select-none">
         <span class="text-xs font-semibold">{current_time_date}</span>
     </time>
