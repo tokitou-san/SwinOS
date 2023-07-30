@@ -10,7 +10,6 @@
     import Settings from "$lib/icons/settings.svelte";
     import Volume from "$lib/icons/volume.svelte";
     import Wifi from "$lib/icons/wifi.svelte";
-    import postcss from "postcss";
     // import { onMount } from "svelte";
     import { fly } from "svelte/transition";
 
