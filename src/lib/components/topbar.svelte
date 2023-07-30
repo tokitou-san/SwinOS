@@ -61,7 +61,7 @@
         use:clickoutside={() => show_controls_popdown && toggle_controls_popdown()}
     >
         <controls-trigger
-            class="flex h-full cursor-pointer items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10"
+            class="{show_controls_popdown && 'bg-white/10'} flex h-full cursor-pointer items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10"
             on:mousedown={toggle_controls_popdown}
         >
             <volume>
