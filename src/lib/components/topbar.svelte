@@ -69,13 +69,13 @@
                 </battery>
 
                 <other-controls class="flex items-center gap-2">
-                    <settings class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20">
+                    <settings class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Settings class="w-4" />
                     </settings>
-                    <lockscreen class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20">
+                    <lockscreen class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Lock class="w-4" />
                     </lockscreen>
-                    <power class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20">
+                    <power class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Power class="w-4" />
                     </power>
                 </other-controls>
