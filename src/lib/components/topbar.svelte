@@ -63,7 +63,7 @@
             </power>
         </controls-trigger>
 
-        <controls-popdown class="absolute flex flex-col gap-4 right-0 h-max w-72 translate-y-3 transform rounded-md bg-white/10 p-3">
+        <controls-popdown class="absolute right-0 flex h-max w-72 translate-y-3 transform flex-col gap-4 rounded-md bg-white/10 p-3 backdrop-blur-xl">
             <system-control-buttons class="flex items-center justify-between">
                 <battery class="flex items-center gap-1">
                     <Battery_80 class="w-4" />
