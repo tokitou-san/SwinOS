@@ -43,7 +43,7 @@
 
 <topbar
     in:fly={{ y: -50 }}
-    class="relative block flex h-8 w-full items-center justify-between bg-white/10 leading-none text-white backdrop-blur-xl"
+    class="fixed top-0 block flex h-8 w-full items-center justify-between bg-white/10 leading-none text-white backdrop-blur-xl"
 >
     <github-icon class="ml-1 flex h-3/4 cursor-pointer items-center rounded-full p-1 transition-colors hover:bg-white/10">
         <a
