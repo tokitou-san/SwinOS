@@ -10,7 +10,7 @@
     /* Get current time and date */
     let current_time_date: string;
     get_time_date();
-    
+
     function get_time_date(): void {
         let current_time = new Date();
 
