@@ -67,7 +67,7 @@
                     <span class="text-xs opacity-75">Available apps:</span>
                     <apps>
                         {#each Array(5) as _}
-                            <app class="cursor-pointer flex items-center gap-3 hover:bg-white/10 rounded-md py-2 hover:px-2 duration-200 ease-in-out">
+                            <app class="cursor-pointer flex items-center gap-3 hover:bg-white/5 rounded-md py-2 hover:px-2 duration-200 ease-in-out">
                                 <app-icon class="w-8 h-8 bg-blue-500 block rounded-md"></app-icon>
                                 <div class="flex flex-col h-full leading-none">
                                     <app-name class="text-xs font-semibold">Tokitou-san</app-name>
