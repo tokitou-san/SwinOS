@@ -12,6 +12,7 @@
     import Wifi from "$lib/icons/wifi.svelte";
     // import { onMount } from "svelte";
     import { fly } from "svelte/transition";
+    import { clickoutside } from "$lib/utils/clickoutside";
 
     /* Get current time and date */
     let current_time_date: string;
@@ -55,9 +56,12 @@
     <time class="absolute inset-x-0 mx-auto flex h-3/4 w-max cursor-pointer select-none items-center rounded-md px-2 transition-colors hover:bg-white/10">
         <span class="text-xs font-semibold">{current_time_date}</span>
     </time>
-    <controls class="relative mr-2 h-3/4 cursor-pointer">
+    <controls
+        class="relative mr-2 h-3/4"
+        use:clickoutside={() => show_controls_popdown && toggle_controls_popdown()}
+    >
         <controls-trigger
-            class="flex h-full items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10"
+            class="flex h-full cursor-pointer items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10"
             on:mousedown={toggle_controls_popdown}
         >
             <volume>
@@ -88,20 +92,20 @@
                     </battery>
 
                     <other-controls class="flex items-center gap-2">
-                        <settings class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 active:bg-white/25">
+                        <settings class="cursor-pointer rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 active:bg-white/25">
                             <Settings class="w-4" />
                         </settings>
-                        <lockscreen class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 active:bg-white/25">
+                        <lockscreen class="cursor-pointer rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 active:bg-white/25">
                             <Lock class="w-4" />
                         </lockscreen>
-                        <power class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 active:bg-white/25">
+                        <power class="cursor-pointer rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20 active:bg-white/25">
                             <Power class="w-4" />
                         </power>
                     </other-controls>
                 </system-control-buttons>
 
                 <volume-brightness-controls class="flex flex-col gap-3">
-                    <volume class="flex items-center gap-3">
+                    <volume class="flex cursor-pointer items-center gap-3">
                         <Volume class="w-4" />
                         <input
                             type="range"
@@ -109,7 +113,7 @@
                             class="h-1 w-full cursor-pointer rounded-lg bg-white/20"
                         />
                     </volume>
-                    <brightness class="flex items-center gap-3">
+                    <brightness class="flex cursor-pointer items-center gap-3">
                         <Brightness class="w-4" />
                         <input
                             type="range"
@@ -120,19 +124,19 @@
                 </volume-brightness-controls>
 
                 <connectivity-controls class="grid grid-cols-2 gap-2">
-                    <wifi class="flex h-10 select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <wifi class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Wifi class="w-4" />
                         <span class="text-xs font-semibold">Wifi</span>
                     </wifi>
-                    <bluetooth class="flex h-10 select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <bluetooth class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Bluetooth class="w-4" />
                         <span class="text-xs font-semibold">Bluetooth</span>
                     </bluetooth>
-                    <night-light class="flex h-10 select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <night-light class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Night class="w-4" />
                         <span class="text-xs font-semibold">Night Light</span>
                     </night-light>
-                    <airplane-mode class="flex h-10 select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <airplane-mode class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Airplane class="w-4" />
                         <span class="text-xs font-semibold">Airplane</span>
                     </airplane-mode>
