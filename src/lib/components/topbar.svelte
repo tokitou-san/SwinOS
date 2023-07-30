@@ -79,20 +79,16 @@
                     <Search class="pointer-events-none absolute ml-3 w-4 opacity-75" />
                 </search>
 
-                <apps-list class="flex flex-col gap-2">
-                    <span class="text-xs opacity-75">Available apps:</span>
-                    <apps>
-                        {#each Array(5) as _}
-                            <app class="flex cursor-pointer items-center gap-3 rounded-md py-2 duration-200 ease-in-out hover:bg-white/5 hover:px-2">
-                                <app-icon class="block h-8 w-8 rounded-md bg-blue-500" />
-                                <div class="flex h-full flex-col leading-none">
-                                    <app-name class="text-xs font-semibold">FireFox</app-name>
-                                    <app-status class="text-xs opacity-50">Not fully developed</app-status>
-                                </div>
-                            </app>
-                        {/each}
-                    </apps>
-                    <span class="text-xs opacity-50">Note: All apps are not fully developed and I wish to add more apps in future, feel free to open a PR in github :)</span>
+                <apps-list class="flex flex-col">
+                    {#each Array(5) as _}
+                        <app class="flex cursor-pointer items-center gap-3 rounded-md py-2 duration-200 ease-in-out hover:bg-white/5 hover:px-2">
+                            <app-icon class="block h-8 w-8 rounded-md bg-white/25" />
+                            <div class="flex h-full flex-col leading-none">
+                                <app-name class="text-xs font-semibold">FireFox</app-name>
+                                <app-status class="text-xs opacity-50">Browser</app-status>
+                            </div>
+                        </app>
+                    {/each}
                 </apps-list>
             </applications-popdown>
         {/if}
