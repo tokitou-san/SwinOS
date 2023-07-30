@@ -1,10 +1,9 @@
 <script lang="ts">
     import Topbar from "$lib/components/topbar.svelte";
 
-    const SHOW_COMPONENTS_DELAY = 300
+    const SHOW_COMPONENTS_DELAY = 300;
     // show / hide components
     let show_topbar = false;
-
 
     setTimeout(() => {
         show_topbar = true;
