@@ -81,8 +81,8 @@
 
         {#if show_controls_popdown}
             <controls-popdown
-                in:fly={{ y: -5 }}
-                out:fly={{ y: -5 }}
+                in:fly={{ y: -5, duration: 250 }}
+                out:fly={{ y: -5, duration: 250 }}
                 class="absolute right-0 flex h-max w-72 translate-y-3 transform flex-col gap-4 rounded-md bg-white/10 p-3 backdrop-blur-xl"
             >
                 <system-control-buttons class="flex items-center justify-between">
