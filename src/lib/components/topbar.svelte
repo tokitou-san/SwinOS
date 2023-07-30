@@ -24,7 +24,7 @@
 </script>
 
 <topbar class="relative block flex h-8 w-full items-center justify-between bg-white/10 leading-none text-white backdrop-blur-xl">
-    <github-icon class="ml-1 hover:bg-white/10 transition-colors h-3/4 rounded-full p-1 flex items-center">
+    <github-icon class="ml-1 flex h-3/4 cursor-pointer items-center rounded-full p-1 transition-colors hover:bg-white/10">
         <a
             href="https://github.com/tokitou-san/SwinOS"
             target="_blank"
@@ -32,10 +32,10 @@
             <Github class="w-5" />
         </a>
     </github-icon>
-    <time class="absolute inset-x-0 mx-auto w-max select-none cursor-pointer hover:bg-white/10 transition-colors h-3/4 rounded-md px-2 flex items-center">
+    <time class="absolute inset-x-0 mx-auto flex h-3/4 w-max cursor-pointer select-none items-center rounded-md px-2 transition-colors hover:bg-white/10">
         <span class="text-xs font-semibold">{get_time_date()}</span>
     </time>
-    <controls class="flex items-center gap-2 cursor-pointer hover:bg-white/10 transition-colors h-3/4 rounded-md px-2 mr-1">
+    <controls class="mr-1 flex h-3/4 cursor-pointer items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10">
         <volume>
             <Volume class="w-4" />
         </volume>
