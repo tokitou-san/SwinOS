@@ -45,8 +45,32 @@
     in:fly={{ y: -50 }}
     class="fixed top-0 block flex h-8 w-full items-center justify-between bg-white/10 leading-none text-white backdrop-blur-xl"
 >
-    <applications class="ml-2 flex h-3/4 cursor-pointer items-center rounded-md px-2 transition-colors hover:bg-white/10">
-        <span class="text-xs font-semibold">Applications</span>
+    <applications class="ml-2 h-3/4 relative">
+        <applications-trigger class="{true && "bg-white/10"} flex h-full cursor-pointer items-center rounded-md px-2 transition-colors hover:bg-white/10">
+            <span class="text-xs font-semibold">Applications</span>
+        </applications-trigger>
+
+        <applications-popdown class="absolute left-0 flex h-96 w-64 translate-y-3 transform flex-col gap-2 rounded-lg bg-white/10 p-3 drop-shadow-2xl backdrop-blur-xl">
+            <search>
+                <!-- svelte-ignore a11y-autofocus -->
+                <input autofocus type="text" placeholder="Search applications..." class="w-full outline-none text-xs rounded-md p-2 pl-3 bg-white/10" />
+            </search>
+
+            <apps-list class="flex flex-col gap-2">
+                <span class="text-xs opacity-75">Available apps:</span>
+                <apps>
+                    {#each Array(5) as _}
+                        <app class="cursor-pointer flex items-center gap-3 hover:bg-white/10 rounded-md py-2 hover:px-2 duration-200 ease-in-out">
+                            <app-icon class="w-8 h-8 bg-blue-500 block rounded-md"></app-icon>
+                            <div class="flex flex-col h-full leading-none">
+                                <app-name class="text-xs font-semibold">Tokitou-san</app-name>
+                                <app-status class="text-xs opacity-50">Full developed</app-status>
+                            </div>
+                        </app>
+                    {/each}
+                </apps>
+            </apps-list>
+        </applications-popdown>
     </applications>
     <time class="absolute inset-x-0 mx-auto w-max select-none">
         <span class="text-xs font-semibold">{current_time_date}</span>
