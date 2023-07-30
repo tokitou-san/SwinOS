@@ -38,7 +38,7 @@
     /* Show controls */
     let show_controls_popdown = false;
     let show_applications = false;
-    
+
     function toggle_controls_popdown() {
         show_controls_popdown = !show_controls_popdown;
     }
@@ -51,37 +51,48 @@
     in:fly={{ y: -50 }}
     class="fixed top-0 block flex h-8 w-full items-center justify-between bg-white/10 leading-none text-white backdrop-blur-xl"
 >
-    <applications class="ml-2 h-3/4 relative" use:clickoutside={() => show_applications && toggle_applications_popdown()}>
-        <applications-trigger class="{show_applications && "bg-white/10"} flex h-full cursor-pointer items-center rounded-md px-2 transition-colors hover:bg-white/10" on:mousedown={toggle_applications_popdown}>
+    <applications
+        class="relative ml-2 h-3/4"
+        use:clickoutside={() => show_applications && toggle_applications_popdown()}
+    >
+        <applications-trigger
+            class="{show_applications && 'bg-white/10'} flex h-full cursor-pointer items-center rounded-md px-2 transition-colors hover:bg-white/10"
+            on:mousedown={toggle_applications_popdown}
+        >
             <span class="text-xs font-semibold">Applications</span>
         </applications-trigger>
 
         {#if show_applications}
-            <applications-popdown class="absolute left-0 flex w-64 translate-y-3 transform flex-col gap-2 rounded-lg bg-white/10 p-3 drop-shadow-2xl backdrop-blur-xl" in:fly={{ y: -5, duration: 250 }}
-                out:fly={{ y: -5, duration: 250 }}>
+            <applications-popdown
+                class="absolute left-0 flex w-64 translate-y-3 transform flex-col gap-2 rounded-lg bg-white/10 p-3 drop-shadow-2xl backdrop-blur-xl"
+                in:fly={{ y: -5, duration: 250 }}
+                out:fly={{ y: -5, duration: 250 }}
+            >
                 <search class="relative flex items-center">
                     <!-- svelte-ignore a11y-autofocus -->
-                    <input autofocus type="text" placeholder="Search applications..." class="w-full outline-none text-xs rounded-md p-2 pl-9 bg-white/10" />
-                    <Search class="absolute w-4 ml-3 opacity-75 pointer-events-none" />
+                    <input
+                        autofocus
+                        type="text"
+                        placeholder="Search applications..."
+                        class="w-full rounded-md bg-white/10 p-2 pl-9 text-xs outline-none"
+                    />
+                    <Search class="pointer-events-none absolute ml-3 w-4 opacity-75" />
                 </search>
 
                 <apps-list class="flex flex-col gap-2">
                     <span class="text-xs opacity-75">Available apps:</span>
                     <apps>
                         {#each Array(5) as _}
-                            <app class="cursor-pointer flex items-center gap-3 hover:bg-white/5 rounded-md py-2 hover:px-2 duration-200 ease-in-out">
-                                <app-icon class="w-8 h-8 bg-blue-500 block rounded-md"></app-icon>
-                                <div class="flex flex-col h-full leading-none">
+                            <app class="flex cursor-pointer items-center gap-3 rounded-md py-2 duration-200 ease-in-out hover:bg-white/5 hover:px-2">
+                                <app-icon class="block h-8 w-8 rounded-md bg-blue-500" />
+                                <div class="flex h-full flex-col leading-none">
                                     <app-name class="text-xs font-semibold">FireFox</app-name>
                                     <app-status class="text-xs opacity-50">Not fully developed</app-status>
                                 </div>
                             </app>
                         {/each}
                     </apps>
-                    <span class="text-xs opacity-50">
-                        Note: All apps are not fully developed and I wish to add more apps in future,
-                        feel free to open a PR in github :)
-                    </span>
+                    <span class="text-xs opacity-50">Note: All apps are not fully developed and I wish to add more apps in future, feel free to open a PR in github :)</span>
                 </apps-list>
             </applications-popdown>
         {/if}
