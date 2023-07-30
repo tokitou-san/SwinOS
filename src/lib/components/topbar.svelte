@@ -1,5 +1,6 @@
 <script lang="ts">
     import Battery_80 from "$lib/icons/battery/battery-80.svelte";
+    import Brightness from "$lib/icons/brightness.svelte";
     import Github from "$lib/icons/github.svelte";
     import Lock from "$lib/icons/lock.svelte";
     import Power from "$lib/icons/power.svelte";
@@ -82,12 +83,23 @@
                 </other-controls>
             </system-control-buttons>
 
-            <volume-brightness-controls class="mt-3 block">
-                <input
-                    type="range"
-                    value="65"
-                    class="transparent h-1 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-white/20"
-                />
+            <volume-brightness-controls class="mt-3 flex flex-col gap-3">
+                <volume class="flex items-center gap-3">
+                    <Volume class="w-4" />
+                    <input
+                        type="range"
+                        value="65"
+                        class="transparent h-1 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-white/20"
+                    />
+                </volume>
+                <brightness class="flex items-center gap-3">
+                    <Brightness class="w-4" />
+                    <input
+                        type="range"
+                        value="10"
+                        class="transparent h-1 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-white/20"
+                    />
+                </brightness>
             </volume-brightness-controls>
         </controls-popdown>
     </controls>
@@ -95,6 +107,6 @@
 
 <style lang="postcss">
     input[type="range"]::-moz-range-thumb {
-        @apply bg-white border-0 rounded-full h-4 w-4
+        @apply h-4 w-4 rounded-full border-0 bg-white;
     }
 </style>
