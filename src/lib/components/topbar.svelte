@@ -60,6 +60,22 @@
             </power>
         </controls-trigger>
 
-        <controls-popdown class="absolute h-10 w-full translate-y-3 transform rounded-md bg-white/10" />
+        <controls-popdown class="absolute h-max w-72 right-0 p-3 translate-y-3 transform rounded-md bg-white/10">
+            <system-control-buttons class="flex items-center justify-between">
+                <battery class="flex items-center gap-1">
+                    <Battery_80 class="w-4" />
+                    <span class="select-none text-xs font-semibold">80%</span>
+                </battery>
+
+                <other-controls class="flex items-center gap-2">
+                    <settings class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
+                        <Settings class="w-4" />
+                    </settings>
+                    <power class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
+                        <Power class="w-4" />
+                    </power>
+                </other-controls>
+            </system-control-buttons>
+        </controls-popdown>
     </controls>
 </topbar>
