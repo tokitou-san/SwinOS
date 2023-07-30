@@ -50,7 +50,7 @@
             <span class="text-xs font-semibold">Applications</span>
         </applications-trigger>
 
-        <applications-popdown class="absolute left-0 flex h-96 w-64 translate-y-3 transform flex-col gap-2 rounded-lg bg-white/10 p-3 drop-shadow-2xl backdrop-blur-xl">
+        <applications-popdown class="absolute left-0 flex w-64 translate-y-3 transform flex-col gap-2 rounded-lg bg-white/10 p-3 drop-shadow-2xl backdrop-blur-xl">
             <search>
                 <!-- svelte-ignore a11y-autofocus -->
                 <input autofocus type="text" placeholder="Search applications..." class="w-full outline-none text-xs rounded-md p-2 pl-3 bg-white/10" />
@@ -69,6 +69,7 @@
                         </app>
                     {/each}
                 </apps>
+                <span class="text-xs opacity-50">Note: All apps are not full developed and I wish to add more apps in future</span>
             </apps-list>
         </applications-popdown>
     </applications>
