@@ -63,7 +63,7 @@
             </power>
         </controls-trigger>
 
-        <controls-popdown class="absolute right-0 h-max w-72 translate-y-3 transform rounded-md bg-white/10 p-3">
+        <controls-popdown class="absolute flex flex-col gap-4 right-0 h-max w-72 translate-y-3 transform rounded-md bg-white/10 p-3">
             <system-control-buttons class="flex items-center justify-between">
                 <battery class="flex items-center gap-1">
                     <Battery_80 class="w-4" />
@@ -83,7 +83,7 @@
                 </other-controls>
             </system-control-buttons>
 
-            <volume-brightness-controls class="mt-3 flex flex-col gap-3">
+            <volume-brightness-controls class="flex flex-col gap-3">
                 <volume class="flex items-center gap-3">
                     <Volume class="w-4" />
                     <input
@@ -101,6 +101,13 @@
                     />
                 </brightness>
             </volume-brightness-controls>
+
+            <connectivity-controls class="grid grid-cols-2 gap-y-2">
+                <wifi>Wifi</wifi>
+                <bluetooth>Bluetooth</bluetooth>
+                <night-light>Night Light</night-light>
+                <airplane-mode>Airplane Mode</airplane-mode>
+            </connectivity-controls>
         </controls-popdown>
     </controls>
 </topbar>
