@@ -60,8 +60,6 @@
             </power>
         </controls-trigger>
 
-        <controls-popdown class="absolute transform translate-y-3 h-10 w-full bg-white/10 rounded-md">
-            
-        </controls-popdown>
+        <controls-popdown class="absolute h-10 w-full translate-y-3 transform rounded-md bg-white/10" />
     </controls>
 </topbar>
