@@ -13,6 +13,7 @@
     // import { onMount } from "svelte";
     import { fly } from "svelte/transition";
     import { clickoutside } from "$lib/utils/clickoutside";
+    import Search from "$lib/icons/search.svelte";
 
     /* Get current time and date */
     let current_time_date: string;
@@ -58,9 +59,10 @@
         {#if show_applications}
             <applications-popdown class="absolute left-0 flex w-64 translate-y-3 transform flex-col gap-2 rounded-lg bg-white/10 p-3 drop-shadow-2xl backdrop-blur-xl" in:fly={{ y: -5, duration: 250 }}
                 out:fly={{ y: -5, duration: 250 }}>
-                <search>
+                <search class="relative flex items-center">
                     <!-- svelte-ignore a11y-autofocus -->
-                    <input autofocus type="text" placeholder="Search applications..." class="w-full outline-none text-xs rounded-md p-2 pl-3 bg-white/10" />
+                    <input autofocus type="text" placeholder="Search applications..." class="w-full outline-none text-xs rounded-md p-2 pl-9 bg-white/10" />
+                    <Search class="absolute w-4 ml-3 opacity-75 pointer-events-none" />
                 </search>
 
                 <apps-list class="flex flex-col gap-2">
@@ -70,13 +72,16 @@
                             <app class="cursor-pointer flex items-center gap-3 hover:bg-white/5 rounded-md py-2 hover:px-2 duration-200 ease-in-out">
                                 <app-icon class="w-8 h-8 bg-blue-500 block rounded-md"></app-icon>
                                 <div class="flex flex-col h-full leading-none">
-                                    <app-name class="text-xs font-semibold">Tokitou-san</app-name>
-                                    <app-status class="text-xs opacity-50">Full developed</app-status>
+                                    <app-name class="text-xs font-semibold">FireFox</app-name>
+                                    <app-status class="text-xs opacity-50">Not fully developed</app-status>
                                 </div>
                             </app>
                         {/each}
                     </apps>
-                    <span class="text-xs opacity-50">Note: All apps are not full developed and I wish to add more apps in future</span>
+                    <span class="text-xs opacity-50">
+                        Note: All apps are not fully developed and I wish to add more apps in future,
+                        feel free to open a PR in github :)
+                    </span>
                 </apps-list>
             </applications-popdown>
         {/if}
