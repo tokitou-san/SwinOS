@@ -4,24 +4,28 @@
     import Power from "$lib/icons/power.svelte";
     import Settings from "$lib/icons/settings.svelte";
     import Volume from "$lib/icons/volume.svelte";
-    import { onMount } from "svelte";
+    // import { onMount } from "svelte";
     import { fly } from "svelte/transition";
 
-    function get_time_date(): string {
+    /* Get current time and date */
+    let current_time_date: string;
+    get_time_date();
+    
+    function get_time_date(): void {
         let current_time = new Date();
 
         let current_month = current_time.toLocaleString("en-US", { month: "short" });
         let current_day = current_time.getDate();
         let current_hour_minute = current_time.toLocaleTimeString("en-US", { hour12: true, hour: "numeric", minute: "numeric" });
 
-        return `${current_month} ${current_day} - ${current_hour_minute}`;
+        current_time_date = `${current_month} ${current_day} - ${current_hour_minute}`;
     }
 
-    onMount(() => {
-        let date_time_interval: number;
-        date_time_interval = setInterval(get_time_date(), 1000);
-        return () => clearInterval(date_time_interval);
-    });
+    /* Uncomment this on production */
+    // onMount(() => {
+    //     let date_time_interval = setInterval(get_time_date(), 1000);
+    //     return () => clearInterval(date_time_interval);
+    // });
 </script>
 
 <topbar
@@ -37,7 +41,7 @@
         </a>
     </github-icon>
     <time class="absolute inset-x-0 mx-auto flex h-3/4 w-max cursor-pointer select-none items-center rounded-md px-2 transition-colors hover:bg-white/10">
-        <span class="text-xs font-semibold">{get_time_date()}</span>
+        <span class="text-xs font-semibold">{current_time_date}</span>
     </time>
     <controls class="mr-1 flex h-3/4 cursor-pointer items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10">
         <volume>
