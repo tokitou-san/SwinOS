@@ -43,7 +43,7 @@
     <time class="absolute inset-x-0 mx-auto flex h-3/4 w-max cursor-pointer select-none items-center rounded-md px-2">
         <span class="text-xs font-semibold">{current_time_date}</span>
     </time>
-    <controls class="relative mr-1 h-3/4 cursor-pointer">
+    <controls class="relative mr-2 h-3/4 cursor-pointer">
         <controls-trigger class="flex h-full items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10">
             <volume>
                 <Volume class="w-4" />
