@@ -41,7 +41,7 @@
             <Github class="w-5" />
         </a>
     </github-icon>
-    <time class="absolute inset-x-0 mx-auto flex h-3/4 w-max cursor-pointer select-none items-center rounded-md px-2">
+    <time class="absolute inset-x-0 mx-auto flex h-3/4 w-max cursor-pointer select-none items-center rounded-md px-2 transition-colors hover:bg-white/10">
         <span class="text-xs font-semibold">{current_time_date}</span>
     </time>
     <controls class="relative mr-2 h-3/4 cursor-pointer">
@@ -61,7 +61,7 @@
             </power>
         </controls-trigger>
 
-        <controls-popdown class="absolute h-max w-72 right-0 p-3 translate-y-3 transform rounded-md bg-white/10">
+        <controls-popdown class="absolute right-0 h-max w-72 translate-y-3 transform rounded-md bg-white/10 p-3">
             <system-control-buttons class="flex items-center justify-between">
                 <battery class="flex items-center gap-1">
                     <Battery_80 class="w-4" />
@@ -69,13 +69,13 @@
                 </battery>
 
                 <other-controls class="flex items-center gap-2">
-                    <settings class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
+                    <settings class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20">
                         <Settings class="w-4" />
                     </settings>
-                    <lockscreen class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
+                    <lockscreen class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20">
                         <Lock class="w-4" />
                     </lockscreen>
-                    <power class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
+                    <power class="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20">
                         <Power class="w-4" />
                     </power>
                 </other-controls>
