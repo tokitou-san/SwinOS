@@ -2,6 +2,5 @@
 
 # Swin OS
 
-A super cool OS like thingy on web powered by Svelte
-
+A Gnone + Windows 11 like OS thingy powered by Svelte and Tailwind 
 > In development
