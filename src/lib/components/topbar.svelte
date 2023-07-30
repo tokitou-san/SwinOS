@@ -1,6 +1,7 @@
 <script lang="ts">
     import Battery_80 from "$lib/icons/battery/battery-80.svelte";
     import Github from "$lib/icons/github.svelte";
+    import Lock from "$lib/icons/lock.svelte";
     import Power from "$lib/icons/power.svelte";
     import Settings from "$lib/icons/settings.svelte";
     import Volume from "$lib/icons/volume.svelte";
@@ -71,6 +72,9 @@
                     <settings class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
                         <Settings class="w-4" />
                     </settings>
+                    <lockscreen class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
+                        <Lock class="w-4" />
+                    </lockscreen>
                     <power class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
                         <Power class="w-4" />
                     </power>
