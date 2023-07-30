@@ -1,11 +1,15 @@
 <script lang="ts">
+    import Airplane from "$lib/icons/airplane.svelte";
     import Battery_80 from "$lib/icons/battery/battery-80.svelte";
+    import Bluetooth from "$lib/icons/bluetooth.svelte";
     import Brightness from "$lib/icons/brightness.svelte";
     import Github from "$lib/icons/github.svelte";
     import Lock from "$lib/icons/lock.svelte";
+    import Night from "$lib/icons/night.svelte";
     import Power from "$lib/icons/power.svelte";
     import Settings from "$lib/icons/settings.svelte";
     import Volume from "$lib/icons/volume.svelte";
+    import Wifi from "$lib/icons/wifi.svelte";
     import postcss from "postcss";
     // import { onMount } from "svelte";
     import { fly } from "svelte/transition";
@@ -102,11 +106,23 @@
                 </brightness>
             </volume-brightness-controls>
 
-            <connectivity-controls class="grid grid-cols-2 gap-y-2">
-                <wifi>Wifi</wifi>
-                <bluetooth>Bluetooth</bluetooth>
-                <night-light>Night Light</night-light>
-                <airplane-mode>Airplane Mode</airplane-mode>
+            <connectivity-controls class="grid grid-cols-2 gap-2">
+                <wifi class="flex h-10 select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <Wifi class="w-4" />
+                    <span class="text-xs font-semibold">Wifi</span>
+                </wifi>
+                <bluetooth class="flex h-10 select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <Bluetooth class="w-4" />
+                    <span class="text-xs font-semibold">Bluetooth</span>
+                </bluetooth>
+                <night-light class="flex h-10 select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <Night class="w-4" />
+                    <span class="text-xs font-semibold">Night Light</span>
+                </night-light>
+                <airplane-mode class="flex h-10 select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <Airplane class="w-4" />
+                    <span class="text-xs font-semibold">Airplane</span>
+                </airplane-mode>
             </connectivity-controls>
         </controls-popdown>
     </controls>
