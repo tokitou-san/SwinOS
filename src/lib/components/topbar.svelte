@@ -5,6 +5,7 @@
     import Power from "$lib/icons/power.svelte";
     import Settings from "$lib/icons/settings.svelte";
     import Volume from "$lib/icons/volume.svelte";
+    import postcss from "postcss";
     // import { onMount } from "svelte";
     import { fly } from "svelte/transition";
 
@@ -80,6 +81,20 @@
                     </power>
                 </other-controls>
             </system-control-buttons>
+
+            <volume-brightness-controls class="mt-3 block">
+                <input
+                    type="range"
+                    value="65"
+                    class="transparent h-1 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-white/20"
+                />
+            </volume-brightness-controls>
         </controls-popdown>
     </controls>
 </topbar>
+
+<style lang="postcss">
+    input[type="range"]::-moz-range-thumb {
+        @apply bg-white border-0 rounded-full h-4 w-4
+    }
+</style>
