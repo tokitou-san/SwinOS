@@ -23,31 +23,30 @@
     });
 </script>
 
-<topbar class="relative block flex h-8 w-full items-center justify-between bg-white/10 px-2 leading-none text-white backdrop-blur-xl">
-    <github-icon>
+<topbar class="relative block flex h-8 w-full items-center justify-between bg-white/10 leading-none text-white backdrop-blur-xl">
+    <github-icon class="ml-1 hover:bg-white/10 transition-colors h-3/4 rounded-full p-1 flex items-center">
         <a
             href="https://github.com/tokitou-san/SwinOS"
             target="_blank"
-            class="opacity-75 transition-opacity hover:opacity-100"
         >
             <Github class="w-5" />
         </a>
     </github-icon>
-    <time class="absolute inset-x-0 mx-auto w-max select-none">
+    <time class="absolute inset-x-0 mx-auto w-max select-none cursor-pointer hover:bg-white/10 transition-colors h-3/4 rounded-md px-2 flex items-center">
         <span class="text-xs font-semibold">{get_time_date()}</span>
     </time>
-    <controls class="flex items-center gap-2">
-        <volume class="cursor-pointer opacity-75 transition-opacity hover:opacity-100">
+    <controls class="flex items-center gap-2 cursor-pointer hover:bg-white/10 transition-colors h-3/4 rounded-md px-2 mr-1">
+        <volume>
             <Volume class="w-4" />
         </volume>
-        <settings class="cursor-pointer opacity-75 transition-opacity hover:opacity-100">
+        <settings>
             <Settings class="w-4" />
         </settings>
-        <battery class="flex cursor-pointer items-center gap-1 opacity-75 transition-opacity hover:opacity-100">
+        <battery class="flex items-center gap-1">
             <Battery_80 class="w-4" />
             <span class="select-none text-xs font-semibold">80%</span>
         </battery>
-        <power class="cursor-pointer opacity-75 transition-opacity hover:opacity-100">
+        <power>
             <Power class="w-4" />
         </power>
     </controls>
