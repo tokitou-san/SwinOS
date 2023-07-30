@@ -3,8 +3,8 @@
 </script>
 
 <main
-    style="background-image: url(/images/wallpaper.jpg);"
-    class="h-screen w-screen bg-cover bg-no-repeat"
+    style="background: url(/images/wallpaper.jpg) fixed center / cover;"
+    class="h-screen w-screen"
 >
     <slot />
 </main>
