@@ -89,7 +89,7 @@
                     <input
                         type="range"
                         value="65"
-                        class="transparent h-1 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-white/20"
+                        class="h-1 w-full cursor-pointer rounded-lg bg-white/20"
                     />
                 </volume>
                 <brightness class="flex items-center gap-3">
@@ -97,7 +97,7 @@
                     <input
                         type="range"
                         value="10"
-                        class="transparent h-1 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-white/20"
+                        class="h-1 w-full cursor-pointer rounded-lg bg-white/20"
                     />
                 </brightness>
             </volume-brightness-controls>
