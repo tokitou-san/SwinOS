@@ -24,7 +24,7 @@
     } = {
         open: {
             icon: Open,
-            text: "Open"
+            text: `Open <span class="capitalize font-semibold">${app_name}</span>`
         },
         pin: {
             icon: Pin,
@@ -50,7 +50,7 @@
                 this={component}
                 class="w-4 opacity-75"
             />
-            <span>{text}</span>
+            <span>{@html text}</span>
         </button>
     {/each}
 </context-menu>
