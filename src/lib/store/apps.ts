@@ -6,17 +6,17 @@ import Github from "$lib/icons/github.svelte";
 import FireFox from "$lib/icons/firefox.svelte";
 
 export const apps: Writable<{
-	[key: string]: {
-		icon: typeof SvelteComponentDev;
-		category: string;
-	}
+    [key: string]: {
+        icon: typeof SvelteComponentDev;
+        category: string;
+    };
 }> = writable({
-	github: {
-		icon: Github,
-		category: "Source Code"
-	},
-	firefox: {
-		icon: FireFox,
-		category: "Internet"
-	}
-})
+    github: {
+        icon: Github,
+        category: "Source Code"
+    },
+    firefox: {
+        icon: FireFox,
+        category: "Internet"
+    }
+});

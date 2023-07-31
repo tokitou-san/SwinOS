@@ -115,7 +115,10 @@
 
                         <app class="flex cursor-pointer items-center gap-3 rounded-md py-2 duration-200 ease-in-out hover:bg-white/5 hover:px-2">
                             <app-icon class="block h-8 w-8">
-                                <svelte:component this={app_icon} class="w-full h-full" />
+                                <svelte:component
+                                    this={app_icon}
+                                    class="h-full w-full"
+                                />
                             </app-icon>
                             <div class="flex h-full flex-col leading-none">
                                 <app-name class="text-xs font-semibold capitalize">{app_name}</app-name>
