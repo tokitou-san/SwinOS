@@ -142,16 +142,16 @@
                         {@const app_category = app[1].category}
 
                         <app
-                            class="flex cursor-pointer items-center gap-3 rounded-md py-2 w-full h-full duration-200 ease-in-out hover:bg-white/5 hover:px-2"
+                            class="flex h-full w-full cursor-pointer items-center gap-3 rounded-md py-2 duration-200 ease-in-out hover:bg-white/5 hover:px-2"
                             on:contextmenu|preventDefault={handle_right_click}
                         >
-                            <app-icon class="block h-8 w-8 pointer-events-none">
+                            <app-icon class="pointer-events-none block h-8 w-8">
                                 <svelte:component
                                     this={app_icon}
                                     class="h-full w-full"
                                 />
                             </app-icon>
-                            <div class="flex h-full flex-col leading-none pointer-events-none">
+                            <div class="pointer-events-none flex h-full flex-col leading-none">
                                 <app-name class="text-xs font-semibold capitalize">{app_name}</app-name>
                                 <app-status class="text-xs opacity-50">{app_category}</app-status>
                             </div>
