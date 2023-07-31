@@ -31,7 +31,7 @@
         [key: string]: {
             icon: typeof SvelteComponentDev;
             text: string;
-        }
+        };
     } = {
         refresh: {
             icon: Refresh,
@@ -45,7 +45,7 @@
             icon: SettingsOutline,
             text: "Settings"
         }
-    }
+    };
 </script>
 
 <context-menu
@@ -62,7 +62,10 @@
         {@const text = item[1].text}
 
         <button class="flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">
-            <svelte:component this={component} class="w-4 opacity-75" />
+            <svelte:component
+                this={component}
+                class="w-4 opacity-75"
+            />
             <span>{text}</span>
         </button>
     {/each}
