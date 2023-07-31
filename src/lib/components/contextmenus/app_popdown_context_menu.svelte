@@ -5,6 +5,7 @@
 
     export let x: number;
     export let y: number;
+    export let app_name: string;
 
     const dispatch = createEventDispatcher();
     function handle_outside_click() {
@@ -20,7 +21,7 @@
     style="top: {y}px; left: {x}px;"
 >
     <button class="w-full px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">
-        Open <span class="font-semibold">Files</span>
+        Open <span class="font-semibold capitalize">{app_name}</span>
     </button>
     <button class="w-full px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">Pin to taskbar</button>
 </context-menu>

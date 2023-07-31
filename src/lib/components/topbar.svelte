@@ -89,11 +89,15 @@
     /* Custom context menu */
     let show_app_context_menu = false;
     let context_pos = { x: 0, y: 0 };
+    let selected_app_name: string;
 
     function handle_right_click(event: MouseEvent) {
+        const node = event.target as HTMLElement;
+
         show_app_context_menu = !show_app_context_menu;
         context_pos = { x: event.clientX, y: event.clientY };
-        console.log(event);
+        // get app name from target
+        selected_app_name = node.textContent!.trim().split(" ")[0];
     }
     function close_context_menu() {
         show_app_context_menu = false;
@@ -104,6 +108,7 @@
 {#if show_app_context_menu}
     <AppPopdownContextMenu
         {...context_pos}
+        app_name={selected_app_name}
         on:mousedown={close_context_menu}
         on:clickoutside={close_context_menu}
     />
@@ -137,16 +142,16 @@
                         {@const app_category = app[1].category}
 
                         <app
-                            class="flex cursor-pointer items-center gap-3 rounded-md py-2 duration-200 ease-in-out hover:bg-white/5 hover:px-2"
+                            class="flex cursor-pointer items-center gap-3 rounded-md py-2 w-full h-full duration-200 ease-in-out hover:bg-white/5 hover:px-2"
                             on:contextmenu|preventDefault={handle_right_click}
                         >
-                            <app-icon class="block h-8 w-8">
+                            <app-icon class="block h-8 w-8 pointer-events-none">
                                 <svelte:component
                                     this={app_icon}
                                     class="h-full w-full"
                                 />
                             </app-icon>
-                            <div class="flex h-full flex-col leading-none">
+                            <div class="flex h-full flex-col leading-none pointer-events-none">
                                 <app-name class="text-xs font-semibold capitalize">{app_name}</app-name>
                                 <app-status class="text-xs opacity-50">{app_category}</app-status>
                             </div>
