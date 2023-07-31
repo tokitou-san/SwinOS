@@ -35,6 +35,25 @@
     //     return () => clearInterval(date_time_interval);
     // });
 
+    /* Controls popdown states */
+    let wifi_enabled = false;
+    let bluetooth_enabled = false;
+    let night_light_enabled = false;
+    let airplane_mode_enabled = false;
+
+    function toggle_wifi() {
+        wifi_enabled = !wifi_enabled;
+    }
+    function toggle_bluetooth() {
+        bluetooth_enabled = !bluetooth_enabled;
+    }
+    function toggle_night_light() {
+        night_light_enabled = !night_light_enabled;
+    }
+    function toggle_airplane_mode() {
+        airplane_mode_enabled = !airplane_mode_enabled;
+    }
+
     /* Show controls */
     let show_controls_popdown = false;
     let show_applications = false;
@@ -164,19 +183,19 @@
                 </volume-brightness-controls>
 
                 <connectivity-controls class="grid grid-cols-2 gap-2">
-                    <wifi class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <wifi on:mousedown={toggle_wifi} class="{wifi_enabled && "bg-white/25 hover:bg-white/25 active:bg-white/25"} flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Wifi class="w-4" />
                         <span class="text-xs font-semibold">Wifi</span>
                     </wifi>
-                    <bluetooth class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <bluetooth on:mousedown={toggle_bluetooth} class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Bluetooth class="w-4" />
                         <span class="text-xs font-semibold">Bluetooth</span>
                     </bluetooth>
-                    <night-light class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <night-light on:mousedown={toggle_night_light} class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Night class="w-4" />
                         <span class="text-xs font-semibold">Night Light</span>
                     </night-light>
-                    <airplane-mode class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
+                    <airplane-mode on:mousedown={toggle_airplane_mode} class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
                         <Airplane class="w-4" />
                         <span class="text-xs font-semibold">Airplane</span>
                     </airplane-mode>
