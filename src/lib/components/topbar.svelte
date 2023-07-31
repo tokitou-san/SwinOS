@@ -12,8 +12,8 @@
     // import { onMount } from "svelte";
     import { fly } from "svelte/transition";
     import { clickoutside } from "$lib/utils/clickoutside";
-    import Search from "$lib/icons/search.svelte";
     import type { SvelteComponentDev } from "svelte/internal";
+    import { apps } from "$lib/store/apps";
 
     /* Get current time and date */
     let current_time_date: string;
@@ -107,24 +107,19 @@
                 in:fly={{ y: -5, duration: 250 }}
                 out:fly={{ y: -5, duration: 250 }}
             >
-                <search class="relative flex items-center">
-                    <!-- svelte-ignore a11y-autofocus -->
-                    <input
-                        autofocus
-                        type="text"
-                        placeholder="Search applications..."
-                        class="w-full rounded-md bg-white/10 p-2 pl-9 text-xs outline-none"
-                    />
-                    <Search class="pointer-events-none absolute ml-3 w-4 opacity-75" />
-                </search>
-
                 <apps-list class="flex flex-col">
-                    {#each Array(5) as _}
+                    {#each Object.entries($apps).sort() as app}
+                        {@const app_name = app[0]}
+                        {@const app_icon = app[1].icon}
+                        {@const app_category = app[1].category}
+
                         <app class="flex cursor-pointer items-center gap-3 rounded-md py-2 duration-200 ease-in-out hover:bg-white/5 hover:px-2">
-                            <app-icon class="block h-8 w-8 rounded-md bg-white/25" />
+                            <app-icon class="block h-8 w-8">
+                                <svelte:component this={app_icon} class="w-full h-full" />
+                            </app-icon>
                             <div class="flex h-full flex-col leading-none">
-                                <app-name class="text-xs font-semibold">FireFox</app-name>
-                                <app-status class="text-xs opacity-50">Browser</app-status>
+                                <app-name class="text-xs font-semibold capitalize">{app_name}</app-name>
+                                <app-status class="text-xs opacity-50">{app_category}</app-status>
                             </div>
                         </app>
                     {/each}
