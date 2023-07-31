@@ -84,6 +84,14 @@
             function: () => (active_controls["airplane_mode"] = !active_controls["airplane_mode"])
         }
     };
+
+    /* Custom context menu */
+    let show_app_context_menu = false;
+
+    function handle_right_click(event: MouseEvent) {
+        show_app_context_menu = true;
+        console.log(event.clientX, event.clientY);
+    }
 </script>
 
 <topbar
@@ -113,7 +121,10 @@
                         {@const app_icon = app[1].icon}
                         {@const app_category = app[1].category}
 
-                        <app class="flex cursor-pointer items-center gap-3 rounded-md py-2 duration-200 ease-in-out hover:bg-white/5 hover:px-2">
+                        <app
+                            class="flex cursor-pointer items-center gap-3 rounded-md py-2 duration-200 ease-in-out hover:bg-white/5 hover:px-2"
+                            on:contextmenu|preventDefault={handle_right_click}
+                        >
                             <app-icon class="block h-8 w-8">
                                 <svelte:component
                                     this={app_icon}
