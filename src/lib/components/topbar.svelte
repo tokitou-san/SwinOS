@@ -3,7 +3,6 @@
     import Battery_80 from "$lib/icons/battery/battery-80.svelte";
     import Bluetooth from "$lib/icons/bluetooth.svelte";
     import Brightness from "$lib/icons/brightness.svelte";
-    import Github from "$lib/icons/github.svelte";
     import Lock from "$lib/icons/lock.svelte";
     import Night from "$lib/icons/night.svelte";
     import Power from "$lib/icons/power.svelte";
@@ -14,6 +13,7 @@
     import { fly } from "svelte/transition";
     import { clickoutside } from "$lib/utils/clickoutside";
     import Search from "$lib/icons/search.svelte";
+    import type { SvelteComponentDev } from "svelte/internal";
 
     /* Get current time and date */
     let current_time_date: string;
@@ -36,23 +36,14 @@
     // });
 
     /* Controls popdown states */
-    let wifi_enabled = false;
-    let bluetooth_enabled = false;
-    let night_light_enabled = false;
-    let airplane_mode_enabled = false;
-
-    function toggle_wifi() {
-        wifi_enabled = !wifi_enabled;
-    }
-    function toggle_bluetooth() {
-        bluetooth_enabled = !bluetooth_enabled;
-    }
-    function toggle_night_light() {
-        night_light_enabled = !night_light_enabled;
-    }
-    function toggle_airplane_mode() {
-        airplane_mode_enabled = !airplane_mode_enabled;
-    }
+    let active_controls: {
+        [key: string]: boolean;
+    } = {
+        wifi: false,
+        bluetooth: false,
+        night_light: false,
+        airplane_mode: false
+    };
 
     /* Show controls */
     let show_controls_popdown = false;
@@ -64,6 +55,35 @@
     function toggle_applications_popdown() {
         show_applications = !show_applications;
     }
+
+    const connectivity_controls_mapping: {
+        [key: string]: {
+            name: string;
+            icon: typeof SvelteComponentDev;
+            function: () => void;
+        };
+    } = {
+        wifi: {
+            name: "Wifi",
+            icon: Wifi,
+            function: () => (active_controls["wifi"] = !active_controls["wifi"])
+        },
+        bluetooth: {
+            name: "Bluetooth",
+            icon: Bluetooth,
+            function: () => (active_controls["bluetooth"] = !active_controls["bluetooth"])
+        },
+        night_light: {
+            name: "Night Light",
+            icon: Night,
+            function: () => (active_controls["night_light"] = !active_controls["night_light"])
+        },
+        airplane_mode: {
+            name: "Airplane",
+            icon: Airplane,
+            function: () => (active_controls["airplane_mode"] = !active_controls["airplane_mode"])
+        }
+    };
 </script>
 
 <topbar
@@ -183,22 +203,25 @@
                 </volume-brightness-controls>
 
                 <connectivity-controls class="grid grid-cols-2 gap-2">
-                    <wifi on:mousedown={toggle_wifi} class="{wifi_enabled && "bg-white/25 hover:bg-white/25 active:bg-white/25"} flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
-                        <Wifi class="w-4" />
-                        <span class="text-xs font-semibold">Wifi</span>
-                    </wifi>
-                    <bluetooth on:mousedown={toggle_bluetooth} class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
-                        <Bluetooth class="w-4" />
-                        <span class="text-xs font-semibold">Bluetooth</span>
-                    </bluetooth>
-                    <night-light on:mousedown={toggle_night_light} class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
-                        <Night class="w-4" />
-                        <span class="text-xs font-semibold">Night Light</span>
-                    </night-light>
-                    <airplane-mode on:mousedown={toggle_airplane_mode} class="flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25">
-                        <Airplane class="w-4" />
-                        <span class="text-xs font-semibold">Airplane</span>
-                    </airplane-mode>
+                    {#each Object.entries(connectivity_controls_mapping) as item}
+                        {@const item_key = item[0]}
+                        {@const item_name = item[1].name}
+                        {@const item_icon = item[1].icon}
+                        {@const item_function = item[1].function}
+
+                        {@const is_active = active_controls[item_key]}
+
+                        <control
+                            on:mousedown={item_function}
+                            class="{is_active && 'bg-white/25 hover:bg-white/25 active:bg-white/25'} flex h-10 cursor-pointer select-none items-center gap-2 rounded-md bg-white/10 pl-3 transition-colors hover:bg-white/20 active:bg-white/25"
+                        >
+                            <svelte:component
+                                this={item_icon}
+                                class="w-4"
+                            />
+                            <span class="text-xs font-semibold">{item_name}</span>
+                        </control>
+                    {/each}
                 </connectivity-controls>
             </controls-popdown>
         {/if}
