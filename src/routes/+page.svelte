@@ -37,14 +37,15 @@
     />
 {/if}
 
-<main-container class="flex flex-col h-full">
+<main-container class="flex h-full flex-col">
     <topbar-container class="h-8">
         {#if show_topbar}
             <Topbar />
         {/if}
     </topbar-container>
 
-    <center-body class="flex h-full w-full" on:contextmenu|preventDefault={handle_right_click}>
-        
-    </center-body>
+    <center-body
+        class="flex h-full w-full"
+        on:contextmenu|preventDefault={handle_right_click}
+    />
 </main-container>
