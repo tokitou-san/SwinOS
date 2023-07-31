@@ -3,22 +3,24 @@
     import { createEventDispatcher } from "svelte";
     import { fade } from "svelte/transition";
 
-	export let x: number;
-	export let y: number;
+    export let x: number;
+    export let y: number;
 
-	const dispatch = createEventDispatcher();
-	function handle_outside_click() {
-		dispatch("clickoutside");
-	}
+    const dispatch = createEventDispatcher();
+    function handle_outside_click() {
+        dispatch("clickoutside");
+    }
 </script>
 
 <context-menu
-	on:mousedown
-	transition:fade={{ duration: 50 }}
-	use:clickoutside={handle_outside_click}
-	class="absolute z-[999] block bg-white/20 w-40 h-max text-white rounded-md overflow-hidden backdrop-blur-xl leading-none"
-	style="top: {y}px; left: {x}px;"
+    on:mousedown
+    transition:fade={{ duration: 50 }}
+    use:clickoutside={handle_outside_click}
+    class="absolute z-[999] block h-max w-40 overflow-hidden rounded-md bg-white/20 leading-none text-white backdrop-blur-xl"
+    style="top: {y}px; left: {x}px;"
 >
-	<button class="text-xs py-2 px-3 w-full text-left hover:bg-white/10 transition-colors">Open <span class="font-semibold">Files</span></button>
-	<button class="text-xs py-2 px-3 w-full text-left hover:bg-white/10 transition-colors">Pin to taskbar</button>
+    <button class="w-full px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">
+        Open <span class="font-semibold">Files</span>
+    </button>
+    <button class="w-full px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">Pin to taskbar</button>
 </context-menu>

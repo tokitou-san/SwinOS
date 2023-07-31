@@ -92,7 +92,7 @@
 
     function handle_right_click(event: MouseEvent) {
         show_app_context_menu = !show_app_context_menu;
-        context_pos = { x: event.clientX, y: event.clientY }
+        context_pos = { x: event.clientX, y: event.clientY };
         console.log(event);
     }
     function close_context_menu() {
@@ -102,7 +102,11 @@
 
 <!-- Context menu -->
 {#if show_app_context_menu}
-    <AppPopdownContextMenu {...context_pos} on:mousedown={close_context_menu} on:clickoutside={close_context_menu} />
+    <AppPopdownContextMenu
+        {...context_pos}
+        on:mousedown={close_context_menu}
+        on:clickoutside={close_context_menu}
+    />
 {/if}
 
 <topbar
