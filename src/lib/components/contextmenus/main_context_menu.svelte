@@ -14,16 +14,12 @@
     }
 
     $: (() => {
+        // prevent context menu from overflowing
         if (!context_element) return;
 
         const rect = context_element.getBoundingClientRect();
         x = Math.min(window.innerWidth - rect.width, x);
         y = Math.min(window.innerHeight - rect.height, y);
-        console.log(x, y);
-        console.log(window.innerWidth);
-        console.log(context_element.clientWidth);
-
-        console.log("New x", Math.min(window.innerWidth - rect.width, x));
     })();
 </script>
 
