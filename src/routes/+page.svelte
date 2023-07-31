@@ -1,6 +1,6 @@
 <script lang="ts">
     import MainContextMenu from "$lib/components/contextmenus/main_context_menu.svelte";
-import Topbar from "$lib/components/topbar.svelte";
+    import Topbar from "$lib/components/topbar.svelte";
 
     const SHOW_COMPONENTS_DELAY = 300;
     // show / hide components
@@ -32,7 +32,11 @@ import Topbar from "$lib/components/topbar.svelte";
 <svelte:body on:contextmenu|preventDefault={handle_right_click} />
 
 {#if show_main_context_menu}
-    <MainContextMenu {...context_pos} on:mousedown={close_context_menu} on:clickoutside={close_context_menu} />
+    <MainContextMenu
+        {...context_pos}
+        on:mousedown={close_context_menu}
+        on:clickoutside={close_context_menu}
+    />
 {/if}
 
 {#if show_topbar}
