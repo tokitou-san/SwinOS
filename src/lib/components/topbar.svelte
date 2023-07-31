@@ -117,6 +117,7 @@
 <topbar
     in:fly={{ y: -50 }}
     class="fixed top-0 block flex h-8 w-full items-center justify-between bg-white/10 leading-none text-white backdrop-blur-xl"
+    on:contextmenu|preventDefault
 >
     <applications
         class="relative ml-2 h-3/4 select-none"
