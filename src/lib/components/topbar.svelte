@@ -39,7 +39,7 @@
     let active_controls: {
         [key: string]: boolean;
     } = {
-        wifi: false,
+        wifi: true,
         bluetooth: false,
         night_light: false,
         airplane_mode: false
