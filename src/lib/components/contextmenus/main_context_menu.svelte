@@ -6,17 +6,33 @@
     export let x: number;
     export let y: number;
 
+    let context_element: HTMLElement;
+
     const dispatch = createEventDispatcher();
     function handle_outside_click() {
         dispatch("clickoutside");
     }
+
+    $: (() => {
+        if (!context_element) return;
+
+        const rect = context_element.getBoundingClientRect();
+        x = Math.min(window.innerWidth - rect.width, x);
+        y = Math.min(window.innerHeight - rect.height, y);
+        console.log(x, y);
+        console.log(window.innerWidth);
+        console.log(context_element.clientWidth);
+
+        console.log("New x", Math.min(window.innerWidth - rect.width, x));
+    })();
 </script>
 
 <context-menu
     on:mousedown
     on:contextmenu|preventDefault
-    transition:fade={{ duration: 50 }}
+    bind:this={context_element}
     use:clickoutside={handle_outside_click}
+    transition:fade={{ duration: 50 }}
     class="absolute z-[999] block h-max w-48 overflow-hidden rounded-md bg-white/20 leading-none text-white drop-shadow-2xl backdrop-blur-xl"
     style="top: {y}px; left: {x}px;"
 >
