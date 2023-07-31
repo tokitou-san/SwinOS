@@ -18,8 +18,8 @@
         if (!context_element) return;
 
         const rect = context_element.getBoundingClientRect();
-        x = Math.min(window.innerWidth - rect.width, x);
-        y = Math.min(window.innerHeight - rect.height, y);
+        x > window.innerWidth - rect.width ? x -= rect.width : x;
+        y > window.innerHeight - rect.height ? y -= rect.height : y;
     })();
 </script>
 
