@@ -95,18 +95,14 @@
         context_pos = { x: event.clientX, y: event.clientY }
         console.log(event);
     }
-
-    /* Handle popdown app */
-    function handle_popdown_app_click() {
-        // close context menu if its opended
-        if (show_app_context_menu) show_app_context_menu = false;
-        // rest codes
+    function close_context_menu() {
+        show_app_context_menu = false;
     }
 </script>
 
 <!-- Context menu -->
 {#if show_app_context_menu}
-    <AppPopdownContextMenu {...context_pos} on:mousedown={() => show_app_context_menu = false} />
+    <AppPopdownContextMenu {...context_pos} on:mousedown={close_context_menu} on:clickoutside={close_context_menu} />
 {/if}
 
 <topbar
@@ -139,7 +135,6 @@
                         <app
                             class="flex cursor-pointer items-center gap-3 rounded-md py-2 duration-200 ease-in-out hover:bg-white/5 hover:px-2"
                             on:contextmenu|preventDefault={handle_right_click}
-                            on:mousedown={handle_popdown_app_click}
                         >
                             <app-icon class="block h-8 w-8">
                                 <svelte:component
