@@ -1,6 +1,10 @@
 <script lang="ts">
+    import Display from "$lib/icons/display.svelte";
+    import Refresh from "$lib/icons/refresh.svelte";
+    import SettingsOutline from "$lib/icons/settings_outline.svelte";
     import { clickoutside } from "$lib/utils/clickoutside";
     import { createEventDispatcher } from "svelte";
+    import type { SvelteComponentDev } from "svelte/internal";
     import { fade } from "svelte/transition";
 
     export let x: number;
@@ -14,13 +18,34 @@
     }
 
     $: (() => {
-        // prevent context menu from overflowing
+        // prevent context menu from overflowing window
         if (!context_element) return;
 
         const rect = context_element.getBoundingClientRect();
-        x > window.innerWidth - rect.width ? x -= rect.width : x;
-        y > window.innerHeight - rect.height ? y -= rect.height : y;
+        x > window.innerWidth - rect.width ? (x -= rect.width) : x;
+        y > window.innerHeight - rect.height ? (y -= rect.height) : y;
     })();
+
+    /* Menu options mappings */
+    const menu_mapping: {
+        [key: string]: {
+            icon: typeof SvelteComponentDev;
+            text: string;
+        }
+    } = {
+        refresh: {
+            icon: Refresh,
+            text: "Refresh"
+        },
+        display_settings: {
+            icon: Display,
+            text: "Display settings"
+        },
+        settings: {
+            icon: SettingsOutline,
+            text: "Settings"
+        }
+    }
 </script>
 
 <context-menu
@@ -32,7 +57,13 @@
     class="absolute z-[999] block h-max w-48 overflow-hidden rounded-md bg-white/20 leading-none text-white drop-shadow-2xl backdrop-blur-xl"
     style="top: {y}px; left: {x}px;"
 >
-    <button class="w-full px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">Refresh</button>
-    <button class="w-full px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">Change background</button>
-    <button class="w-full px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">Settings</button>
+    {#each Object.entries(menu_mapping) as item}
+        {@const component = item[1].icon}
+        {@const text = item[1].text}
+
+        <button class="flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">
+            <svelte:component this={component} class="w-4 opacity-75" />
+            <span>{text}</span>
+        </button>
+    {/each}
 </context-menu>
