@@ -64,7 +64,10 @@
         {@const text = item[1].text}
         {@const item_function = item[1].function}
 
-        <button on:click={item_function} class="flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">
+        <button
+            on:click={item_function}
+            class="flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-colors hover:bg-white/10"
+        >
             <svelte:component
                 this={component}
                 class="w-4 opacity-75"
