@@ -31,11 +31,13 @@
         [key: string]: {
             icon: typeof SvelteComponentDev;
             text: string;
+            function?: () => void;
         };
     } = {
         refresh: {
             icon: Refresh,
-            text: "Refresh"
+            text: "Refresh",
+            function: () => window.location.reload()
         },
         display_settings: {
             icon: Display,
@@ -60,8 +62,9 @@
     {#each Object.entries(menu_mapping) as item}
         {@const component = item[1].icon}
         {@const text = item[1].text}
+        {@const item_function = item[1].function}
 
-        <button class="flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">
+        <button on:click={item_function} class="flex w-full items-center gap-2 px-3 py-2 text-left text-xs transition-colors hover:bg-white/10">
             <svelte:component
                 this={component}
                 class="w-4 opacity-75"
