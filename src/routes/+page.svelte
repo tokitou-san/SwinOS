@@ -1,13 +1,14 @@
 <script lang="ts">
     import Topbar from "$lib/components/topbar.svelte";
+    import Bottombar from "$lib/components/bottombar.svelte";
     import MainContextMenu from "$lib/components/contextmenus/main_context_menu.svelte";
 
     const SHOW_COMPONENTS_DELAY = 300;
     // show / hide components
-    let show_topbar = false;
+    let show_top_bottom_bars = false;
 
     setTimeout(() => {
-        show_topbar = true;
+        show_top_bottom_bars = true;
     }, SHOW_COMPONENTS_DELAY);
 
     /* Context menu */
@@ -38,9 +39,10 @@
 {/if}
 
 <main-container class="flex h-full flex-col">
-    <topbar-container class="h-8">
-        {#if show_topbar}
+    <topbar-container class="h-8 flex justify-center">
+        {#if show_top_bottom_bars}
             <Topbar />
+            <Bottombar />
         {/if}
     </topbar-container>
 
