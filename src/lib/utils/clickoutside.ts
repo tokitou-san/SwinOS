@@ -1,4 +1,4 @@
-export function clickoutside(node: HTMLElement, callback_function: any) {
+export function clickoutside(node: HTMLElement, callback_function: () => void) {
     function on_click(event: MouseEvent) {
         if (!node.contains(event.target as HTMLElement)) {
             callback_function();
