@@ -5,6 +5,9 @@
     import { fly } from "svelte/transition";
 </script>
 
+<start-menu class="block absolute -bottom-0 mb-16 h-72 w-[30rem] bg-white/10 rounded-lg backdrop-blur-2xl">
+</start-menu>
+
 <div
     in:fly={{ y: 50 }}
     on:contextmenu|preventDefault
