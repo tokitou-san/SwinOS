@@ -28,10 +28,13 @@
     class="fixed bottom-0 flex h-14 items-center justify-between gap-5 rounded-t-md bg-white/10 px-5 backdrop-blur-xl"
 >
     <start class="flex">
-        <button on:click={toggle_start_menu} use:clickoutside={{
-            callback_function: () => show_start_menu && toggle_start_menu(),
-            exclude: [start_menu_element]
-        }}>
+        <button
+            on:click={toggle_start_menu}
+            use:clickoutside={{
+                callback_function: () => show_start_menu && toggle_start_menu(),
+                exclude: [start_menu_element]
+            }}
+        >
             <Menu class="w-6" />
         </button>
     </start>
