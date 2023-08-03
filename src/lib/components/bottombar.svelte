@@ -7,6 +7,7 @@
 
 <div
     in:fly={{ y: 50 }}
+    on:contextmenu|preventDefault
     class="fixed bottom-0 flex h-14 items-center justify-between gap-5 rounded-t-md bg-white/10 px-5 backdrop-blur-xl"
 >
     <start class="flex">
