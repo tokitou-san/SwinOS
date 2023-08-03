@@ -11,9 +11,11 @@
 </script>
 
 {#if show_start_menu}
-    <start-menu in:fly={{ y: 5, duration: 250 }}
-                out:fly={{ y: 5, duration: 250 }} class="block absolute -bottom-0 mb-16 h-72 w-[30rem] bg-white/10 rounded-lg backdrop-blur-2xl">
-    </start-menu>
+    <start-menu
+        in:fly={{ y: 5, duration: 250 }}
+        out:fly={{ y: 5, duration: 250 }}
+        class="absolute -bottom-0 mb-16 block h-72 w-[30rem] rounded-lg bg-white/10 backdrop-blur-2xl"
+    />
 {/if}
 
 <div
