@@ -39,7 +39,7 @@
 {/if}
 
 <main-container class="flex h-full flex-col">
-    <topbar-container class="h-8 flex justify-center">
+    <topbar-container class="flex h-8 justify-center">
         {#if show_top_bottom_bars}
             <Topbar />
             <Bottombar />
