@@ -2,9 +2,12 @@
     import Menu from "$lib/icons/menu.svelte";
     import Search from "$lib/icons/search.svelte";
     import { apps } from "$lib/store/apps";
+    import { clickoutside } from "$lib/utils/clickoutside";
     import { fly } from "svelte/transition";
 
     let show_start_menu = false;
+    let start_menu_element: HTMLElement;
+
     function toggle_start_menu() {
         show_start_menu = !show_start_menu;
     }
@@ -14,6 +17,7 @@
     <start-menu
         in:fly={{ y: 5, duration: 250 }}
         out:fly={{ y: 5, duration: 250 }}
+        bind:this={start_menu_element}
         class="absolute -bottom-0 mb-16 block h-72 w-[30rem] rounded-lg bg-white/10 backdrop-blur-2xl"
     />
 {/if}
@@ -24,7 +28,10 @@
     class="fixed bottom-0 flex h-14 items-center justify-between gap-5 rounded-t-md bg-white/10 px-5 backdrop-blur-xl"
 >
     <start class="flex">
-        <button on:click={toggle_start_menu}>
+        <button on:click={toggle_start_menu} use:clickoutside={{
+            callback_function: () => show_start_menu && toggle_start_menu(),
+            exclude: [start_menu_element]
+        }}>
             <Menu class="w-6" />
         </button>
     </start>
