@@ -20,11 +20,14 @@
             {@const app_icon = app[1].icon}
             {@const app_name = app[0]}
 
-            <button class="relative flex w-10 items-center justify-center rounded-md p-2 duration-[250ms] hover:w-14 hover:pb-10">
+            <button class="relative group flex w-10 items-center justify-center rounded-md p-2 duration-[250ms] hover:w-14 hover:pb-10">
                 <svelte:component
                     this={app_icon}
                     class="w-full"
                 />
+                <tooltip class="absolute -top-5 text-xs capitalize opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity">
+                    {app_name}
+                </tooltip>
             </button>
         {/each}
     </pinned-apps>
