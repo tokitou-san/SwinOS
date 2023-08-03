@@ -1,3 +1,5 @@
+import { onMount } from "svelte";
+
 export function clickoutside(node: HTMLElement, callback_function: () => void) {
     function on_click(event: MouseEvent) {
         if (!node.contains(event.target as HTMLElement)) {
@@ -5,11 +7,11 @@ export function clickoutside(node: HTMLElement, callback_function: () => void) {
         }
     }
 
-    document.body.addEventListener("click", on_click);
+    onMount(() => {
+        document.body.addEventListener("click", on_click);
 
-    return {
-        destroy() {
+        return () => {
             document.body.removeEventListener("click", on_click);
-        }
-    };
+        };
+    });
 }
