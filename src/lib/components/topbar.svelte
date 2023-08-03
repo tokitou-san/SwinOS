@@ -121,7 +121,10 @@
 >
     <applications
         class="relative ml-2 h-3/4 select-none"
-        use:clickoutside={() => show_applications && toggle_applications_popdown()}
+        use:clickoutside={{
+            callback_function: () => show_applications && toggle_applications_popdown(),
+            exclude: []
+        }}
     >
         <applications-trigger
             class="{show_applications && 'bg-white/10'} flex h-full cursor-pointer items-center rounded-md px-2 transition-colors hover:bg-white/10"
@@ -167,7 +170,10 @@
     </time>
     <controls
         class="relative mr-2 h-3/4"
-        use:clickoutside={() => show_controls_popdown && toggle_controls_popdown()}
+        use:clickoutside={{
+            callback_function: () => show_controls_popdown && toggle_controls_popdown(),
+            exclude: []
+        }}
     >
         <controls-trigger
             class="{show_controls_popdown && 'bg-white/10'} flex h-full cursor-pointer items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10"
