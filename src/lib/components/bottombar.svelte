@@ -5,7 +5,10 @@
     import { fly } from "svelte/transition";
 </script>
 
-<div in:fly={{ y: 50 }} class="fixed bottom-0 flex h-14 items-center justify-between gap-10 rounded-t-md bg-white/10 px-5 backdrop-blur-xl">
+<div
+    in:fly={{ y: 50 }}
+    class="fixed bottom-0 flex h-14 items-center justify-between gap-5 rounded-t-md bg-white/10 px-5 backdrop-blur-xl"
+>
     <start class="flex">
         <button>
             <Menu class="w-6" />
@@ -17,9 +20,7 @@
             {@const app_icon = app[1].icon}
             {@const app_name = app[0]}
 
-            <button
-                class="relative flex w-10 p-2 hover:w-14 hover:pb-10 items-center justify-center hover:bg-white/10sd rounded-md duration-[250ms]"
-            >
+            <button class="hover:bg-white/10sd relative flex w-10 items-center justify-center rounded-md p-2 duration-[250ms] hover:w-14 hover:pb-10">
                 <svelte:component
                     this={app_icon}
                     class="w-full"
