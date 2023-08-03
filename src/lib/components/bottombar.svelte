@@ -3,10 +3,18 @@
     import Search from "$lib/icons/search.svelte";
     import { apps } from "$lib/store/apps";
     import { fly } from "svelte/transition";
+
+    let show_start_menu = false;
+    function toggle_start_menu() {
+        show_start_menu = !show_start_menu;
+    }
 </script>
 
-<start-menu class="block absolute -bottom-0 mb-16 h-72 w-[30rem] bg-white/10 rounded-lg backdrop-blur-2xl">
-</start-menu>
+{#if show_start_menu}
+    <start-menu in:fly={{ y: 5, duration: 250 }}
+                out:fly={{ y: 5, duration: 250 }} class="block absolute -bottom-0 mb-16 h-72 w-[30rem] bg-white/10 rounded-lg backdrop-blur-2xl">
+    </start-menu>
+{/if}
 
 <div
     in:fly={{ y: 50 }}
@@ -14,7 +22,7 @@
     class="fixed bottom-0 flex h-14 items-center justify-between gap-5 rounded-t-md bg-white/10 px-5 backdrop-blur-xl"
 >
     <start class="flex">
-        <button>
+        <button on:click={toggle_start_menu}>
             <Menu class="w-6" />
         </button>
     </start>
