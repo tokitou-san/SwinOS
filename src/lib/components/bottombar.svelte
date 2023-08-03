@@ -20,7 +20,7 @@
             {@const app_icon = app[1].icon}
             {@const app_name = app[0]}
 
-            <button class="hover:bg-white/10sd relative flex w-10 items-center justify-center rounded-md p-2 duration-[250ms] hover:w-14 hover:pb-10">
+            <button class="relative flex w-10 items-center justify-center rounded-md p-2 duration-[250ms] hover:w-14 hover:pb-10">
                 <svelte:component
                     this={app_icon}
                     class="w-full"
