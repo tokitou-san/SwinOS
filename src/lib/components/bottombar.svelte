@@ -25,7 +25,7 @@
                     this={app_icon}
                     class="w-full"
                 />
-                <tooltip class="pointer-events-none absolute -top-5 text-xs capitalize opacity-0 transition-opacity group-hover:opacity-100">
+                <tooltip class="pointer-events-none absolute -top-4 text-xs capitalize opacity-0 transition-opacity group-hover:opacity-100">
                     {app_name}
                 </tooltip>
             </button>
