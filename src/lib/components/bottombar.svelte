@@ -5,8 +5,8 @@
     import { clickoutside } from "$lib/utils/clickoutside";
     import { fly } from "svelte/transition";
 
-    let show_start_menu = false;
-    let start_menu_element: HTMLElement;
+    let show_start_menu = false,
+        start_menu_element: HTMLElement
 
     function toggle_start_menu() {
         show_start_menu = !show_start_menu;
