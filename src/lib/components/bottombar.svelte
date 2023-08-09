@@ -6,7 +6,7 @@
     import { fly } from "svelte/transition";
 
     let show_start_menu = false,
-        start_menu_element: HTMLElement
+        start_menu_element: HTMLElement;
 
     function toggle_start_menu() {
         show_start_menu = !show_start_menu;
