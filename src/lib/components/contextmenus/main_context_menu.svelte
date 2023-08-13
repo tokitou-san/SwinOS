@@ -9,14 +9,9 @@
 
     export let x: number;
     export let y: number;
+    export let show_context_menu: boolean;
 
     let context_element: HTMLElement;
-
-    const dispatch = createEventDispatcher();
-    function handle_outside_click() {
-        dispatch("clickoutside");
-    }
-
     $: (() => {
         // prevent context menu from overflowing window
         if (!context_element) return;
@@ -53,9 +48,11 @@
 <context-menu
     on:mousedown
     on:contextmenu|preventDefault
+    use:clickoutside={{ enabled: show_context_menu }}
+    on:clickoutside
     bind:this={context_element}
-    use:clickoutside={handle_outside_click}
     transition:fade={{ duration: 50 }}
+
     class="absolute z-[999] block h-max w-48 overflow-hidden rounded-md bg-white/20 leading-none text-white drop-shadow-2xl backdrop-blur-xl"
     style="top: {y}px; left: {x}px;"
 >

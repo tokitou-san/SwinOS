@@ -47,14 +47,31 @@
     };
 
     /* Show controls */
-    let show_controls_popdown = false;
-    let show_applications = false;
+    let show_controls_popdown = false,
+        show_applications = false;
 
     function toggle_controls_popdown() {
         show_controls_popdown = !show_controls_popdown;
     }
     function toggle_applications_popdown() {
         show_applications = !show_applications;
+    }
+
+    /* Custom context menu */
+    let show_app_context_menu = false;
+    let context_pos = { x: 0, y: 0 };
+    let selected_app_name: string;
+
+    function handle_right_click(event: MouseEvent) {
+        const node = event.target as HTMLElement;
+
+        show_app_context_menu = !show_app_context_menu;
+        context_pos = { x: event.clientX, y: event.clientY };
+        // get app name from target
+        selected_app_name = node.textContent!.trim().split(" ")[0];
+    }
+    function close_context_menu() {
+        show_app_context_menu = false;
     }
 
     const connectivity_controls_mapping: {
@@ -85,29 +102,13 @@
             function: () => (active_controls["airplane_mode"] = !active_controls["airplane_mode"])
         }
     };
-
-    /* Custom context menu */
-    let show_app_context_menu = false;
-    let context_pos = { x: 0, y: 0 };
-    let selected_app_name: string;
-
-    function handle_right_click(event: MouseEvent) {
-        const node = event.target as HTMLElement;
-
-        show_app_context_menu = !show_app_context_menu;
-        context_pos = { x: event.clientX, y: event.clientY };
-        // get app name from target
-        selected_app_name = node.textContent!.trim().split(" ")[0];
-    }
-    function close_context_menu() {
-        show_app_context_menu = false;
-    }
 </script>
 
 <!-- Context menu -->
 {#if show_app_context_menu}
     <AppPopdownContextMenu
         {...context_pos}
+        show_context_menu={show_app_context_menu}
         app_name={selected_app_name}
         on:mousedown={close_context_menu}
         on:clickoutside={close_context_menu}
@@ -121,10 +122,8 @@
 >
     <applications
         class="relative ml-2 h-3/4 select-none"
-        use:clickoutside={{
-            callback_function: () => show_applications && toggle_applications_popdown(),
-            exclude: []
-        }}
+        use:clickoutside={{ enabled: show_applications }}
+        on:clickoutside={toggle_applications_popdown}
     >
         <applications-trigger
             class="{show_applications && 'bg-white/10'} flex h-full cursor-pointer items-center rounded-md px-2 transition-colors hover:bg-white/10"
@@ -165,19 +164,21 @@
             </applications-popdown>
         {/if}
     </applications>
+
     <time class="absolute inset-x-0 mx-auto w-max select-none">
         <span class="text-xs font-semibold">{current_time_date}</span>
     </time>
+
     <controls
+        use:clickoutside={{ enabled: show_controls_popdown }}
+        on:clickoutside={toggle_controls_popdown}
+        
         class="relative mr-2 h-3/4"
-        use:clickoutside={{
-            callback_function: () => show_controls_popdown && toggle_controls_popdown(),
-            exclude: []
-        }}
     >
         <controls-trigger
-            class="{show_controls_popdown && 'bg-white/10'} flex h-full cursor-pointer items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10"
             on:mousedown={toggle_controls_popdown}
+            
+            class="{show_controls_popdown && 'bg-white/10'} flex h-full cursor-pointer items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10"
         >
             <volume>
                 <Volume class="w-4" />
