@@ -9,9 +9,7 @@ export function clickoutside(node: HTMLElement, params: { enabled: boolean }) {
         let target = event.target as HTMLElement;
         if (listen && node && !node.contains(target) && !event.defaultPrevented) {
             // dispatch an event
-            node.dispatchEvent(
-                new CustomEvent("clickoutside", { detail: event })
-            );
+            node.dispatchEvent(new CustomEvent("clickoutside", { detail: event }));
         }
     }
 
@@ -25,5 +23,5 @@ export function clickoutside(node: HTMLElement, params: { enabled: boolean }) {
         destroy() {
             document.removeEventListener("click", handler, true);
         }
-    }
+    };
 }

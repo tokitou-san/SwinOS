@@ -166,9 +166,7 @@
     <time class="absolute inset-x-0 mx-auto w-max select-none">
         <span class="text-xs font-semibold">{current_time_date}</span>
     </time>
-    <controls
-        class="relative mr-2 h-3/4"
-    >
+    <controls class="relative mr-2 h-3/4">
         <controls-trigger
             class="{show_controls_popdown && 'bg-white/10'} flex h-full cursor-pointer items-center gap-2 rounded-md px-2 transition-colors hover:bg-white/10"
             on:mousedown={toggle_controls_popdown}

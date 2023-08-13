@@ -28,9 +28,7 @@
     class="fixed bottom-0 flex h-14 items-center justify-between gap-5 rounded-t-md bg-white/10 px-5 backdrop-blur-xl"
 >
     <start class="flex">
-        <button
-            on:click={toggle_start_menu}
-        >
+        <button on:click={toggle_start_menu}>
             <Menu class="w-6" />
         </button>
     </start>
