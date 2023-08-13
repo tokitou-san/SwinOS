@@ -34,6 +34,7 @@
     <MainContextMenu
         {...context_pos}
         on:mousedown={close_context_menu}
+        show_context_menu={show_main_context_menu}
         on:clickoutside={close_context_menu}
     />
 {/if}
