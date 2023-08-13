@@ -30,10 +30,6 @@
     <start class="flex">
         <button
             on:click={toggle_start_menu}
-            use:clickoutside={{
-                callback_function: () => show_start_menu && toggle_start_menu(),
-                exclude: [start_menu_element]
-            }}
         >
             <Menu class="w-6" />
         </button>

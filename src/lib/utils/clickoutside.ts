@@ -1,17 +1,29 @@
-import { onMount } from "svelte";
+import { createEventDispatcher } from "svelte";
 
-export function clickoutside(node: HTMLElement, options: { callback_function: () => void; exclude: Array<HTMLElement> }) {
-    function on_click(event: MouseEvent) {
-        if (!node.contains(event.target as HTMLElement) && !options.exclude.some((el) => el && el.contains(event.target as HTMLElement)) && typeof options.callback_function === "function") {
-            options.callback_function();
+export function clickoutside(node: HTMLElement, params: { enabled: boolean }) {
+    let dispatch = createEventDispatcher();
+    let listen: boolean = params.enabled;
+
+    // handler function
+    function handler(event: MouseEvent) {
+        let target = event.target as HTMLElement;
+        if (listen && node && !node.contains(target) && !event.defaultPrevented) {
+            // dispatch an event
+            console.log("Dispatching clickoutside event");
+            node.dispatchEvent(
+                new CustomEvent("clickoutside", { detail: event })
+            );
         }
     }
 
-    onMount(() => {
-        document.body.addEventListener("click", on_click);
+    document.addEventListener("click", handler, true);
 
-        return () => {
-            document.body.removeEventListener("click", on_click);
-        };
-    });
+    return {
+        update(update: { enabled: boolean }) {
+            listen = update.enabled;
+        },
+        destroy() {
+            document.removeEventListener("click", handler, true);
+        }
+    }
 }
