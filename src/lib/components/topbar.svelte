@@ -108,6 +108,7 @@
 {#if show_app_context_menu}
     <AppPopdownContextMenu
         {...context_pos}
+        show_context_menu={show_app_context_menu}
         app_name={selected_app_name}
         on:mousedown={close_context_menu}
         on:clickoutside={close_context_menu}

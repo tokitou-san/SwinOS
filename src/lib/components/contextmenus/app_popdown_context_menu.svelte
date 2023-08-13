@@ -9,11 +9,7 @@
     export let x: number;
     export let y: number;
     export let app_name: string;
-
-    const dispatch = createEventDispatcher();
-    function handle_outside_click() {
-        dispatch("clickoutside");
-    }
+    export let show_context_menu: boolean;
 
     /* Menu options mappings */
     const menu_mapping: {
@@ -36,7 +32,10 @@
 <context-menu
     on:mousedown
     on:contextmenu|preventDefault
+    use:clickoutside={{ enabled: show_context_menu }}
+    on:clickoutside
     transition:fade={{ duration: 50 }}
+    
     class="absolute z-[999] block h-max w-40 overflow-hidden rounded-md bg-white/20 leading-none text-white drop-shadow-2xl backdrop-blur-xl"
     style="top: {y}px; left: {x}px;"
 >
