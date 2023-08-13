@@ -9,7 +9,6 @@ export function clickoutside(node: HTMLElement, params: { enabled: boolean }) {
         let target = event.target as HTMLElement;
         if (listen && node && !node.contains(target) && !event.defaultPrevented) {
             // dispatch an event
-            console.log("Dispatching clickoutside event");
             node.dispatchEvent(
                 new CustomEvent("clickoutside", { detail: event })
             );
@@ -19,6 +18,7 @@ export function clickoutside(node: HTMLElement, params: { enabled: boolean }) {
     document.addEventListener("click", handler, true);
 
     return {
+        // update "listen" according to "enabled" gets updated
         update(update: { enabled: boolean }) {
             listen = update.enabled;
         },
