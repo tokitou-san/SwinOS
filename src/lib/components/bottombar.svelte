@@ -5,8 +5,7 @@
     import { clickoutside } from "$lib/utils/clickoutside";
     import { fly } from "svelte/transition";
 
-    let show_start_menu = false,
-        start_menu_element: HTMLElement;
+    let show_start_menu = false;
 
     function toggle_start_menu() {
         show_start_menu = !show_start_menu;
@@ -17,7 +16,6 @@
     <start-menu
         in:fly={{ y: 5, duration: 250 }}
         out:fly={{ y: 5, duration: 250 }}
-        bind:this={start_menu_element}
         class="absolute -bottom-0 mb-16 block h-72 w-[30rem] rounded-lg bg-white/10 backdrop-blur-2xl"
     />
 {/if}
