@@ -1,7 +1,7 @@
-![Desktop Welcome window](https://github.com/tokitou-san/SwinOS/assets/114811070/7afce567-81fc-48cf-904d-2b361a86d291)
-
 # Swin OS
 
-A Gnome + Windows11 like OS thingy powered by Svelte, Typescript and Tailwind
+A Gnome + Windows11 like OS thingy powered by Svelte and Tailwind
 
 > In development
+
+![Screenshot from 2023-08-14 20-08-15](https://github.com/tokitou-san/SwinOS/assets/114811070/17b36b7e-12ab-4572-8536-3e1365ebcdd5)
